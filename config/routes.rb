@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # restaurants controllers routes
   get "/restaurants", to: "restaurants#index", as: "restaurants"
   post "/restaurants", to: "restaurants#create"
   get "/restaurants/new", to: "restaurants#new", as: "new_restaurant"
@@ -6,6 +7,10 @@ Rails.application.routes.draw do
   put "/restaurants/:id", to: "restaurants#update"
   patch "/restaurants/:id", to: "restaurants#update"
   get "/restaurants/:id/edit", to: "restaurants#edit", as: "edit_restaurant"
+
+  # reviews controllers routes 
+  post "/reviews", to: "reviews#create", as: "review"
+
 
   root 'restaurants#index'
 

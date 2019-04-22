@@ -1,28 +1,5 @@
-<h2><%= @restaurant.title %></h2>
+<<h3>Add a Review</h3>
 
-<h3>Food Type</h3>
-<p><%= @restaurant.food_type %></p>
-
-<h3>Address</h3>
-<p><%= @restaurant.address %></p>
-
-<h3>Description</h3>
-<p><%= @restaurant.description %></p>
-
-    <h3>Reviews</h3>
-    <ul>
-        <% @restaurant.reviews.each do |review| %>
-            <li>
-                <p><%= review.title %> - <%= review.rating %> </p>
-                <p><%= review.content %></p>
-            </li>
-        <% end %>
-    </ul>
-
-
-
-
-<h3>Add a Review</h3>
 <form action="<%= review_path %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
     <input type="hidden" value="<%= @restaurant.id %>" name="restaurant_id" />
@@ -38,4 +15,3 @@
 
     <input type="submit" value="Create" />
 </form>
-<%= link_to "Back", :back %>

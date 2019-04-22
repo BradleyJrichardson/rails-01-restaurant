@@ -2,8 +2,23 @@
 
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
-        <li>
-            <%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
-        </li>
+    <div>
+            <p><%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %></p>
+
+            <% unless restaurant.reviews.empty? %>
+                <p>
+                Reviews: <%= restaurant.reviews.count %>
+                </p>
+            <% end %>
+
+            <p>
+    Average Rating: <%= restaurant.average_rating %>
+            </p>
+
+
+            <hr>
+            <br>
+    </div>
+
     <% end %>
 </ul>
