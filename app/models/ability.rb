@@ -9,10 +9,13 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
-      # manage is the full CRUD
+    # manage is the full CRUD
+    elsif user.moderator?
+      can %i[update read], [Review, Restaurant]
     else
       can :read, :all
     end
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

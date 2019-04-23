@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # reviews controllers routes
   post '/reviews', to: 'reviews#create', as: 'review'
   delete '/reviews/:id', to: 'reviews#destroy'
+  put '/reviews/:id', to: 'reviews#update'
+  patch '/reviews/:id', to: 'reviews#update'
+  get '/reviews/:id/edit', to: 'reviews#edit', as: 'edit_review'
 
   root 'restaurants#index'
 end
