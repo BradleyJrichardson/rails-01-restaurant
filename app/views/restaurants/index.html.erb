@@ -1,24 +1,23 @@
 <h1>Restaurants</h1>
+<div><%=link_to "add restaurant", new_restaurant_path %> </div>
+<br>
 
-<ul>
-    <% @restaurants.each_with_index do |restaurant, index| %>
-    <div>
-            <p><%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %></p>
+<% @restaurants.each_with_index do |restaurant, index| %>
+<div>
+    <p><%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
+    </p>
 
-            <% unless restaurant.reviews.empty? %>
-                <p>
-                Reviews: <%= restaurant.reviews.count %>
-                </p>
-            <% end %>
+    <% unless restaurant.reviews.empty? %>
+    <p>
+    Reviews: <%= restaurant.reviews.count %>
+    </p>
+    <% end %>
 
-            <p>
+    <p>
     Average Rating: <%= restaurant.average_rating %>
-            </p>
-
-
-            <hr>
-            <br>
-    </div>
+    </p>
+    <hr>
+    <br>
+</div>
 
     <% end %>
-</ul>
