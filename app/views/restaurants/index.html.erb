@@ -12,7 +12,6 @@
     <p><%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
     </p>
 
-
     <% if restaurant.reviews.empty? %>
         <p>
         <span>There are no reviews</span>

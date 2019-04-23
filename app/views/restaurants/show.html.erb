@@ -11,6 +11,10 @@
             <% elsif can? :update, @restaurant %>
                 <%= link_to "edit", edit_restaurant_path(@restaurant.id) %>
              <% end %>
+<%# you need can can to prevent and block people form reaching undesired destination with the url
+this is What CANCAN is useful for%>
+
+ <%# so if we just want to display certain things for certain people then we can just do if user.admin? do this instead of using can can %>
 
 <h3>Address</h3>
 <p><%= @restaurant.address %></p>
@@ -22,6 +26,7 @@
             <li>
                 <p><%= review.title %> - <%= review.rating %> </p>
                 <p><%= review.content %></p>
+                <p><%= link_to "edit", edit_review_path(review.id) %></p>
             </li>
         <% end %>
     </ul>
