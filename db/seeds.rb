@@ -5,10 +5,12 @@ Restaurant.destroy_all
 10.times do
   params = {
     title: Faker::Restaurant.unique.name,
-    address: Faker::Address.unique.full_address,
+    address: Faker::Address.unique.full_address || '',
     food_type: Faker::Restaurant.type,
     description: Faker::Lorem.paragraph
   }
+  puts "Params - Restaurant: #{params}"
+
   puts "Creating Restaurant: #{params[:title]}"
   restaurant = Restaurant.new(params)
   restaurant.save
@@ -21,12 +23,17 @@ Restaurant.destroy_all
     params = {
       title: Faker::Name.name,
       rating: rand(11),
-      content: Faker::Lorem.paragraph,
-      restaurant_id: restaurant.id
+      content: Faker::Lorem.paragraph
     }
-    puts "Creating review: #{params[:title]}"
+
+    puts "Params - Review: #{params}"
     review = Review.new(params)
-    review.save
+    review.restaurant = restaurant
+    if review.save
+      puts "Creating review: #{params[:title]}"
+    else
+      puts 'Did not work'
+    end
   end
 end
 

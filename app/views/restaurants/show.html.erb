@@ -4,7 +4,10 @@
 <p><%= @restaurant.food_type %></p>
 <h1>Restaurants</h1>
             <% if can? :update, @restaurant %>
-             <%= link_to "edit", edit_restaurant_path(@restaurant.id) %>
+            <%= link_to "edit", edit_restaurant_path(@restaurant.id) %>
+            <%= link_to "delete", restaurant_path(@restaurant.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
              <% end %>
 
 <h3>Address</h3>

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   put '/restaurants/:id', to: 'restaurants#update'
   patch '/restaurants/:id', to: 'restaurants#update'
   get '/restaurants/:id/edit', to: 'restaurants#edit', as: 'edit_restaurant'
+  delete '/restaurants/:id', to: 'restaurants#destroy', as: 'delete_restaurant'
 
   # reviews controllers routes
   post '/reviews', to: 'reviews#create', as: 'review'
+  delete '/reviews/:id', to: 'reviews#destroy'
 
   root 'restaurants#index'
 end
