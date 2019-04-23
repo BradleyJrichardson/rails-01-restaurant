@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
+  authorize_resource
   def index
     @restaurants = Restaurant.all
   end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   # restaurants controllers routes
   get '/restaurants', to: 'restaurants#index', as: 'restaurants'
   post '/restaurants', to: 'restaurants#create'

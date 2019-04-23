@@ -3,10 +3,16 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# in a production app we would specify what version of gems to use to make it more stable in the long run
+
 ruby '2.5.1'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+
+# authorization and authentication
+gem 'cancancan'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
