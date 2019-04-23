@@ -30,7 +30,8 @@
 
 
 <h3>Add a Review</h3>
-<form action="<%= review_path %>" method="POST" >
+<% if can? :update, @restaurant %>
+    <form action="<%= review_path %>" method="POST" >
     <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
     <input type="hidden" value="<%= @restaurant.id %>" name="restaurant_id" />
 
@@ -45,4 +46,9 @@
 
     <input type="submit" value="Create" />
 </form>
+<% else %>
+    <p>please log in to leave a review</p>
+<% end %>
+
+
 <%= link_to "Back", :back %>

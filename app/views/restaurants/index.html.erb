@@ -4,20 +4,26 @@
 
 <% @restaurants.each_with_index do |restaurant, index| %>
 <div>
+<br>
     <p><%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
     </p>
 
-    <% unless restaurant.reviews.empty? %>
-    <p>
-    Reviews: <%= restaurant.reviews.count %>
-    </p>
-    <% end %>
 
-    <p>
-    Average Rating: <%= restaurant.average_rating %>
-    </p>
-    <hr>
-    <br>
+    <% if restaurant.reviews.empty? %>
+        <p>
+        <span>There are no reviews</span>
+        <%= link_to "Leave one", restaurant_path(restaurant.id) %>
+        </p>
+    <% else %>
+        <p>
+        Reviews: <%= restaurant.reviews.count %>
+        <br>
+        Average Rating: <%= restaurant.average_rating %>
+        </p>
+    <% end %>
 </div>
+<br>
+<br>
+<hr>
 
     <% end %>
